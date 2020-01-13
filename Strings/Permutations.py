@@ -5,6 +5,35 @@ This script counts all permutation in a string
 __author__ = 'roeiherz'
 
 
+def permutation_v4(x, y):
+    """
+    x,y: strings.
+    A method to decide if x is a permutation of y (for example 'aedcbc' is a perm of 'cabcde')
+    """
+
+    # option1: sort and check O(nlogn)
+    x_tmp = ''.join(sorted(x))
+    y_tmp = ''.join(sorted(y))
+    if x_tmp in y_tmp:
+        return True
+    return False
+
+    # option2: hashing
+    def _occur(x):
+        map = {}
+        for s in x:
+            if s not in map:
+                map[s] = 1
+            else:
+                map[s] += 1
+        return map
+    map_x, map_y = _occur(x), _occur(y)
+    for k, v in map_x.items():
+        if k not in map_y and map_y[k] != v:
+            return False
+    return True
+
+
 def permutation_v3(string, step=0):
     """
     Print every permutation of the string in the same length
@@ -26,7 +55,7 @@ def permutation_v2(string, prefix):
     """
     Counts every permutation of the string
     :param string: abc
-    :param prefix:
+    :param prefix: ''
     :return: a, b, c, ab, ac, bc
     """
 
@@ -56,4 +85,5 @@ def permutation(string):
 if __name__ == '__main__':
     # permutation('abc')
     # permutation_v2('abc', "")
-    permutation_v3('abc')
+    # permutation_v3('abc')
+    permutation_v4('aedcbc', 'cabcde')
