@@ -53,10 +53,10 @@ def permutation_v3(string, step=0):
 
 def permutation_v2(string, prefix):
     """
-    Counts every permutation of the string
+    Counts only sub permutation of the string
     :param string: abc
     :param prefix: ''
-    :return: a, b, c, ab, ac, bc
+    :return: a, b, c, ab, ac, bc (not ba or cb or ca)
     """
 
     if len(string) != 0:
@@ -69,9 +69,9 @@ def permutation_v2(string, prefix):
 
 def permutation(string):
     """
-    Counts only sub strings permutations
+    Counts every strings permutations
     :param string: abc
-    :return: a, b, c, ab, bc
+    :return: a, b, c, ab, bc, ac, ba, cb, ca
     """
 
     if string != '':
@@ -83,7 +83,8 @@ def permutation(string):
 
 
 if __name__ == '__main__':
-    # permutation('abc')
-    # permutation_v2('abc', "")
+    permutation('abc')
+    print("new")
+    permutation_v2('abc', "")
     # permutation_v3('abc')
-    permutation_v4('aedcbc', 'cabcde')
+    # permutation_v4('aedcbc', 'cabcde')

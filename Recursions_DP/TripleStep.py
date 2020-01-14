@@ -1,36 +1,35 @@
 __author__ = 'roeiherz'
 
 """
-A child is running up a staircase with n steps and can hop either 1 step, 2 steps or 3 steps at a time.
-Implement a method to count how many possible ways the child can run up the stairs.
+Write a method to return all subsets of a set
 """
 
 
-def triple_step(n=2):
+def power_set(subset):
+    n = len(subset)
     # Stop case
-    if n < 0:
-        return 0
+    if n != 0:
+        print(subset)
 
-    if n == 0:
-        return 1
+    for i in range(n):
+        new_lst = subset[:i] + subset[i + 1:]
+        power_set(new_lst)
 
-    return triple_step(n - 3) + triple_step(n - 2) + triple_step(n - 1)
 
-
-def triple_step_memo(mem, n=2):
+def power_set_memo(subset, mem):
+    n = len(subset)
     # Stop case
-    if n < 0:
-        return 0
+    if n != 0:
+        if subset not in mem:
+            mem.add(subset)
+            print(subset)
 
-    if n in mem:
-        return mem[n]
-    else:
-        mem[n] = triple_step_memo(mem, n - 3) + triple_step_memo(mem, n - 2) + triple_step_memo(mem, n - 1)
-        return mem[n]
+    for i in range(n):
+        new_lst = subset[:i] + subset[i + 1:]
+        power_set_memo(new_lst, mem)
 
 
 if __name__ == '__main__':
-    # print(triple_step(4))
-    mem = {0: 1}
-    print(triple_step_memo(mem, 4))
-    print(triple_step_memo(mem, 37))
+    mem = set()
+    # power_set((1, 2, 3, 4))
+    power_set_memo((1, 2, 3, 4), mem)
