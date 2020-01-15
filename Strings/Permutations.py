@@ -82,9 +82,49 @@ def permutation(string):
         permutation(new_string)
 
 
+def permutation_without_dups(string, prefix):
+    """
+    Write a method to compute all permutations of a string of unique chars
+    :param string:
+    :return:
+    """
+
+    # Stop if
+    if prefix != '':
+        print(prefix)
+
+    for i in range(len(string)):
+        new_str = string[:i] + string[i+1:]
+        permutation_without_dups(new_str, prefix + string[i])
+
+
+def permutation_with_dups(string, prefix, sett):
+    """
+    Write a method to compute all permutations of a string of unique chars
+    :param string:
+    :return:
+    """
+
+    # Stop if
+    if prefix != '':
+        print(prefix)
+
+    for i in range(len(string)):
+        new_str = string[:i] + string[i+1:]
+        new_prefix = prefix + string[i]
+        if new_prefix not in sett:
+            sett.add(new_prefix)
+        else:
+            continue
+        permutation_with_dups(new_str, new_prefix, sett)
+
+
 if __name__ == '__main__':
-    permutation('abc')
-    print("new")
-    permutation_v2('abc', "")
+    # permutation('abc')
+    # print("new")
+    # permutation_v2('abc', "")
     # permutation_v3('abc')
     # permutation_v4('aedcbc', 'cabcde')
+    # permutation_without_dups("abcde", '')
+    sett = set()
+    permutation_with_dups("abcde", '', sett)
