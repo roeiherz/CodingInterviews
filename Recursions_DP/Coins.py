@@ -7,6 +7,10 @@ write code to calculate the number of ways of representing n cents.
 
 
 def coins(n, arr):
+    """
+    Counting all ways e.g.: (5,1) and (1,5)
+    """
+
     # Stop case
     if n < 0:
         return 0
