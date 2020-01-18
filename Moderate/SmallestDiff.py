@@ -8,6 +8,9 @@ Example: [1,3,15,11,2], [23, 127, 235, 19, 8]
 
 
 def smallest_diff(A, B):
+    """
+    O(AlogA +BlogB + A+B)
+    """
     # Sort arrays
     A = sorted(A)
     B = sorted(B)
