@@ -34,17 +34,18 @@ def english_int(x):
         return "Negative " + english_int(-1 * x)
 
     chunk_count = 0
-    strr = ''
+    popup = []
     while x > 0:
         if x % 1000 != 0:
-            strr += convert_chunk(x % 1000) + " " + BIGS[chunk_count]
+            popup.append(convert_chunk(x % 1000) + " " + BIGS[chunk_count] + ' ')
 
         chunk_count += 1
         x /= 1000
 
+    strr = ''.join(popup[::-1])
     print(strr.replace('  ', ' '))
 
 
 if __name__ == '__main__':
-    x = 550560
+    x = 5505600
     english_int(x)
