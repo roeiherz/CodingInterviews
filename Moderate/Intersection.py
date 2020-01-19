@@ -21,7 +21,7 @@ class Line:
         if self.point1[1] == self.point2[1]:
             return 0
         # Y=mX+N
-        return (self.point2[1] - self.point1[1]) / (self.point2[0] - self.point1[0])
+        return (self.point2[1] - self.point1[1]) / float(self.point2[0] - self.point1[0])
 
     def get_n(self):
         if self.m is None:
