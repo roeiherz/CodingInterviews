@@ -16,11 +16,26 @@ class Square:
 
         self.top = top
         self.buttom = buttom
+        self.center = self.get_center()
+
+    def get_center(self):
+        center_x = self.buttom[0] + (self.buttom[0] - self.top[0]) / 2.
+        center_y = self.buttom[1] + (self.buttom[1] - self.top[1]) / 2.
+        return (center_x, center_y)
 
 
 def bisect_squares(A, B):
     # Sort arrays
-    print("Smallest Diff {}")
+    center_a = A.center
+    center_b = B.center
+
+    if float(center_b[0] - center_a[0]) != 0:
+        m = (center_b[1] - center_a[1]) / float(center_b[0] - center_a[0])
+        n = center_b[1] - m * center_b[0]
+        return (m, n)
+
+    # No m and n since x=5
+    return None
 
 
 if __name__ == '__main__':
