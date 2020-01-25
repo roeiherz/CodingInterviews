@@ -26,7 +26,7 @@ def diving_board_eff():
             lst.append((i, K-i))
         if (K-i, i) not in lst:
             lst.append((K-i, i))
-    print lst
+    print(lst)
 
 
 if __name__ == '__main__':
