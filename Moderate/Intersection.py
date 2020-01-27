@@ -54,6 +54,7 @@ def find_intersection(line1, line2):
         y = line2.m * x + line2.n
         return (x, y)
     else:
+        # Parallel
         return None
 
 
