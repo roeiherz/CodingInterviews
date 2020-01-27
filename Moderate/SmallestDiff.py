@@ -32,7 +32,31 @@ def smallest_diff(A, B):
     print("Smallest Diff {}".format(diff))
 
 
+def smallest_diff2(A, B):
+    """
+    O(AlogA +BlogB + A+B)
+    """
+    # Sort arrays
+    A = sorted(A)
+    B = sorted(B)
+
+    ind_a = 0
+    ind_b = 0
+    diff = 100000000000000000
+    while ind_a < len(A) and ind_b < len(B):
+        if diff > abs(A[ind_a] - B[ind_b]):
+            diff = abs(A[ind_a] - B[ind_b])
+
+        if A[ind_a] > B[ind_b]:
+            ind_b = ind_b + 1
+        else:
+            ind_a = ind_a + 1
+
+    print("Smallest Diff {}".format(diff))
+
+
 if __name__ == '__main__':
     A = [1, 2, 11, 15]
     B = [4, 12, 19, 23, 127, 235]
+    smallest_diff2(A, B)
     smallest_diff(A, B)
