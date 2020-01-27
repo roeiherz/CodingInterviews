@@ -19,6 +19,14 @@ Output: 6, 3 (in any order)
 
 
 def compute_pond(A, i, j, locations):
+    """
+    Scan only 3x3 sub matrix around i,j
+    :param A: Array
+    :param i: index i
+    :param j: index j
+    :param locations: locations to see if we already have been in some place on the board
+    :return:
+    """
     ind_i_min = max(i - 1, 0)
     ind_i_max = min(i + 1, len(A)-1)
     ind_j_min = max(j - 1, 0)
@@ -34,6 +42,11 @@ def compute_pond(A, i, j, locations):
 
 
 def pond(A):
+    """
+    Dynamic solution to travel on the board as long we didn't visit i,j
+    :param A: array
+    :return:
+    """
     locations = [[0 for j in range(len(A))] for i in range(len(A))]
     sizes = set()
     for i in range(len(A)):
