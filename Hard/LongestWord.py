@@ -40,6 +40,34 @@ def split_word_eff(word, A, original_word=False):
     return False
 
 
+def split_word_cnt_eff(word, A, sett, origin, original_word=False):
+    """
+    Adding sett mapping for counting
+    :param word: string of the curr word
+    :param A: array of words
+    :param sett: adding the mapping
+    :param origin: origin word string
+    :param original_word: boolean flag
+    :return:
+    """
+    # Stop if
+    if word in A and not original_word:
+        return True
+
+    for i in range(len(word)):
+        left = word[:i]
+        right = word[i:]
+        if split_word_cnt_eff(left, A, sett, origin) and split_word_cnt_eff(right, A, sett, origin):
+            if origin not in sett:
+                sett[origin] = set()
+
+            sett[origin].add(left)
+            sett[origin].add(right)
+            return True
+
+    return False
+
+
 def longest_word(A):
     for i in range(len(A)):
         word = A[i]
@@ -48,6 +76,9 @@ def longest_word(A):
         #     print(word)
         if split_word_eff(word, A, original_word=True):
             print(word)
+        # sett = {}
+        # if split_word_cnt_eff(word, A, sett, origin=word, original_word=True):
+        #     print(word)
 
 
 if __name__ == '__main__':
