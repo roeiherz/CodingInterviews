@@ -1,2 +1,2 @@
 # Coding Interviews
-My solutions for part of the "Cracking the Coding Interview" book assignments.
+My solutions for some of the assignments from "Cracking the Coding Interview" book.
