@@ -43,7 +43,7 @@ def permutation_v3(string, step=0):
 
     n = len(string)
     if n == step:
-        print ''.join(string)
+        print(''.join(string))
 
     for i in range(step, n):
         copy_str = [c for c in string]
