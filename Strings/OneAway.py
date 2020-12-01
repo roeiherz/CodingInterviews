@@ -1,9 +1,9 @@
 __author__ = 'roeiherz'
 
 """
-There are 3 types of edits that can be performed ib strings: insert a char, remove a char, replace a char. 
+There are 3 types of edits that can be performed in strings: insert a char, remove a char, replace a char. 
 Given two strings, write a function to check if they are one edit (or zero) away.
-example: 'pale, ple' -> true; 'pale, bale' -> false
+example: 'pale, ple' -> true; 'pales, bale' -> false
 """
 
 
