@@ -63,6 +63,6 @@ def palindrome_perm_hash(x):
 
 
 if __name__ == '__main__':
-    "Given a string write a method to check if it a perm of a palindrome"
+    "Given a string write a method to check its perm is a palindrome"
     # palindrome_perm("Tact Coa")
     palindrome_perm_hash("Tact Coa")
