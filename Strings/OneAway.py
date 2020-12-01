@@ -9,7 +9,7 @@ example: 'pale, ple' -> true; 'pales, bale' -> false
 
 def one_hand_hash(x, y):
     """
-    Use hash; more space
+    Use hash; more space; Bad solution since hashing is order invariant 'pale' and 'elap' will returned the same
     :param x: string
     :param y: string
     :return:
