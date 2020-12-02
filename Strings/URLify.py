@@ -15,11 +15,11 @@ def URLify(x, n):
             new_x.append(c)
 
     new_x = new_x[:n]
-    print ''.join(new_x)
+    print(''.join(new_x))
 
     # not inplace 2
     arr = [chunk for chunk in x.split(' ') if chunk != '']
-    print '%20'.join(arr)
+    print('%20'.join(arr))
 
 
 if __name__ == '__main__':
