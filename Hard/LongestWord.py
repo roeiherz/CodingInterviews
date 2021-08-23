@@ -68,7 +68,7 @@ def split_word_cnt_eff(word, A, sett, origin, original_word=False):
     return False
 
 
-def longest_word(A):
+def almost_longest_word(A):
     for i in range(len(A)):
         word = A[i]
         # sett = set()
@@ -81,7 +81,37 @@ def longest_word(A):
         #     print(word)
 
 
+
+
+### Similar to 'almost_longest_word' but FIXed to have the longest by adding track ###
+
+
+def split_word__eff(word, A, original_word, track):
+    if word in A and word != original_word:
+        return True
+
+    for i in range(len(word)):
+        left = word[:i]
+        right = word[i:]
+        if split_word__eff(left, A, original_word, track) and split_word__eff(right, A, original_word, track):
+            track[original_word].append([left, right])
+            return True
+
+    return False
+
+
+def longest_word(A):
+    track = {}
+    for w in A:
+        if w not in track:
+            track[w] = []
+        if split_word__eff(w, A, original_word=w, track=track):
+            print(w)
+    return track
+
+
 if __name__ == '__main__':
     A = ['cat', 'banana', 'dog', 'nana', 'walk', 'walker', 'dogwalker']
     # A = ['dogwalker', 'walk', 'dog', 'er']
+    A = ['walkdog', 'dogwalker', 'walk', 'dog', 'er']
     longest_word(A)
